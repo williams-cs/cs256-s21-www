@@ -1,1 +1,5 @@
-# cs256-s21-www
+# CS 256:  Algorithm Design and Analysis Spring 2021 
+
+## Course Website
+
+* Public repository

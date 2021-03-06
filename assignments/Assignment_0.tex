@@ -1,0 +1,236 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{tcolorbox}
+\theoremstyle{definition}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\newtheorem{problem}{Problem} %
+\newtheorem{claim}{Claim}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+\newtheorem{question}{Problem}
+\titleformat*{\section}{\large\bfseries}
+\newenvironment{solution}{\bigskip\noindent{\em Solution.}  \ignorespaces}{\hfill\qed}
+ 
+
+\newcommand{\homework}[6]{
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf CS256:~Algorithm Design and Analysis \hfill #1} }
+       \vspace{6mm}
+       \hbox to 6.28in { {\Large \hfill #2 \normalsize{(#3)}  \hfill} }
+       \vspace{6mm}
+     \hbox to 6.28in { {\it Instructor: #4 \hfill  Solution template: #5} }
+   }
+   }
+   \end{center}
+   \markboth{#1}{#1}
+   \vspace*{4mm}
+}
+
+\begin{document}
+\homework{Spring 2021}{Assignment 0}{due 02/24/2021 }{Shikha Singh}{\href{https://www.overleaf.com/read/zskjjmfwnsvk}{\em Overleaf}, {\href{https://williams-cs.github.io/cs256-s21/assignments/Assignment_0.tex}{\em .tex file}}}
+
+ 
+\noindent
+\paragraph{Note.} This homework will not be graded on correctness but on completion---to get full points, you must attempt all the questions (except the optional feedback question).
+
+
+\bigskip
+
+The goal of this assignment is for you to check your familiarity with the background material from Data Structures (CS136) and Discrete Math (MATH200), and for you to get comfortable with \LaTeX. It is {your responsibility} to fill in the gaps in your knowledge.  
+
+\bigskip
+
+
+\noindent
+\paragraph{Submission guidelines.} 
+
+\begin{itemize}
+
+\item There is one question per page of this assignment.  Make sure you scroll to see all the questions. 
+
+\item All assignments are due by {\bf 11 pm} on the day of the deadline, unless stated otherwise. 
+
+\item Use the \LaTeX solution template linked in the header.  You may the online LaTeX platform Overleaf, or use the source tex file and the LaTeX installed on your machine.
+
+\item To submit your work, sign up for Gradescope using the course code {\bf 74XDKB}.
+
+\item When submitting your solution PDF on Gradescope, you must match questions to pages in the PDF.  This takes less than a minute and is crucial for efficient and anonymous grading. Sometimes, you may need to mark pages approximately, e.g., for multi-part questions such as Problem~\ref{shortanswer}. 
+
+\item Finally, don't forget to cite your sources and collaborators in the Acknowledgment section at the end.  
+
+\end{itemize}
+\bigskip
+   
+
+
+
+
+\begin{question}
+If you have not done so already, complete the following start-of-term activities:
+
+\begin{itemize}
+\item Sign up for slack using the following \href{https://join.slack.com/t/cs256-s21/shared_invite/zt-mbulx8tv-VMB1wVGH4i1Tbtzvh5amxA}{invitation link}. You must sign up for slack to complete this assignment!
+
+\item Fill out the \href{https://docs.google.com/forms/d/e/1FAIpQLSe3odD5IftJxQYS4r9u_RVF_BZlUQdMsfccQcYtoVH8U2OBYg/viewform?usp=sf_link}{course introduction survey}.
+
+\end{itemize}
+
+\end{question}
+
+
+
+\newpage
+\begin{question}\label{shortanswer}
+For each of the following, answer with the tightest upper bound from this list: $O(\log n)$, $O(n)$, $O(n \log n)$, $O(n^2)$, $O(2^n)$. Briefly
+justify your answer.
+  \begin{enumerate}[label=(\alph*)]
+  	\item The number of leaves in a complete\footnote{Complete: Every leaf has same depth and every non-leaf has two children.} binary tree of height $n$:
+  	
+  	\begin{solution}
+
+    \end{solution} 
+	\item The depth of a complete binary tree with $n$ nodes:
+	
+	\begin{solution}
+
+    \end{solution} 
+	\item The number of edges in an $n$-node tree:
+	
+	\begin{solution}
+
+    \end{solution} 
+	\item The worst-case run time to sort $n$ items using merge sort:
+	
+	\begin{solution}
+
+    \end{solution} 
+    
+	\item The number of distinct subsets of a set of $n$ items:
+	
+	\begin{solution}
+
+    \end{solution} 
+    
+	\item The number of bits needed to represent the positive integer $n$:
+	
+	\begin{solution}
+
+    \end{solution} 
+
+	\item The time to find the second largest number in a set of $n$ (not necessarily sorted) numbers:
+	
+	\begin{solution}
+
+    \end{solution} 
+  \end{enumerate}
+  
+\end{question}
+
+\newpage
+
+
+
+\begin{question} 
+ Show that  $1+r+r^2+ r^3 + r^4 \ldots+ r^k < 2 r^k$, if $r \geq 2$. (Remember this fact: in an increasing geometric series, the largest term asymptotically dominates!)
+\end{question}
+
+
+
+\newpage
+
+\begin{question}
+Let $A, B$ be sets. Prove by contradiction that $A \cap B = \emptyset \implies A \subseteq \overline{B}$.
+\end{question}
+%\begin{question}
+%Prove that $1 + 2 + 3 + 4 + \ldots + n = n(n+1)/ 2$.
+%\end{question}
+
+\begin{solution}
+
+\end{solution}
+
+\newpage
+
+\begin{question}
+In this question, we will prove the following claim:
+
+\bigskip
+\begin{tcolorbox}
+\begin{claim}\label{induc}
+Any tree with $n$ vertices has exactly $n-1$ edges.
+\end{claim}
+\end{tcolorbox}
+
+\bigskip
+
+First, we will look at a ``false induction'' proof for Claim~\ref{induc}, which {\em feels} like real induction\footnote{In fact,
+this was the most common mistake made by students when this question was asked in CS136.} but does not prove the claim.
+
+\begin{enumerate}[label = (\alph*)]
+\item Explain, in your own words, why the following attempt at a proof by induction does not prove Claim~\ref{induc}.
+
+
+
+\paragraph{Proof by induction.} Let $V(T)$ denote the set of vertices of tree $T$ and $n = |V(T)|$ denote the number of vertices.
+We do an induction on the number of vertices $n$. 
+\begin{itemize}
+\item {\em Base case.} A tree with $n = 1$
+must have $0$ edges thus the claim holds. % is clearly true.  
+\item {\em Inductive hypothesis.}  Assume that any arbitrary tree $T$ with $n \geq 2$ vertices has $n-1$ edges.  
+\item {\em Inductive Step.} Let $w \in T$ be a leaf node\footnote{A tree must always have at least one leaf node, why?} of degree $1$.
+Suppose we add a vertex $v$ to $T$ via the edge $(v, w)$. Let the new tree be $T'$.
+
+Then $T'$ has $n+1$ vertices and one more edge than $T$.  By the inductive hypothesis $T$ has $n-1$ edges.
+Thus, $T'$ has $|V(T')|-1 = n$ edges,
+which proves Claim~\ref{induc}.  \qed
+\end{itemize}
+
+\begin{solution}
+\end{solution}
+
+\item Give a correct proof by induction for Claim~\ref{induc}.
+
+
+\begin{solution}
+\end{solution}
+
+\end{enumerate}
+\end{question}
+
+
+
+\newpage
+
+\begin{question} {(Optional)}
+Describe your experience using \LaTeX{} to typeset this document, e.g., did you use Overleaf or an installed \TeX{} application? 
+was the template useful? what resources did you use to learn/debug?
+\end{question}
+
+
+\emph{Answer.}
+
+\newpage
+\section*{Acknowledgments}
+Cite your sources and collaborators here.  (Make sure this section starts on a new page and is the last page of the submission)
+
+\end{document}

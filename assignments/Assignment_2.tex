@@ -1,0 +1,206 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{graphicx,fancyhdr,algorithm,algorithmic}
+\usepackage[space]{grffile}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{enumitem} 
+
+
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{claim}{Claim}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+\newtheorem{question}{Problem}
+
+\newenvironment{solution}{\bigskip\noindent{\it Solution.}  \ignorespaces}{\hfill\qed}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+\PassOptionsToPackage{hyphens}{url}
+\newcommand{\homework}[6]{
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf CS256:~Algorithm Design and Analysis \hfill #1} }
+       \vspace{6mm}
+       \hbox to 6.28in { {\Large \hfill #2 \normalsize{(#3)}  \hfill} }
+       \vspace{6mm}
+     \hbox to 6.28in { {\it Instructor: #4 \hfill  Solution template: #5} }
+   }
+   }
+   \end{center}
+   \markboth{#1}{#1}
+   \vspace*{4mm}
+}
+
+\begin{document}
+\homework{Spring 2021}{Assignment 2}{due 03/10/2021 }{Shikha Singh}{\href{https://www.overleaf.com/read/wgryzkyrzgcz}{\em Overleaf}, {\href{https://williams-cs.github.io/cs256-s21/assignments/Assignment_2.tex}{\em .tex file}}}
+
+
+
+
+\subsection*{Depth-First Search \& Traversal Applications}
+
+\bigskip
+
+\begin{question} (KT 3.5---10 points) 
+Let $G = (V, E)$ be a connected undirected graph, and let $T$ be a depth-first spanning tree of $G$
+rooted at some node $v$. Prove that if $T$ is also a breadth-first spanning tree
+of $G$ rooted at $v$, then $E = T$, that is, all edges of $G$ must be present in $T$ and vice versa. ({\em Hint.} Use the properties of BFS and DFS we proved in class.)
+\end{question}
+\begin{solution}
+\end{solution}
+
+\newpage
+
+\newpage
+\begin{question}(10 points)
+Suppose $G$ is a connected undirected graph with a node $v$ such that removing $v$ from $G$ makes the remaining graph disconnected. Such a $v$ is called an \emph{articulation point}. Let $T$ be a DFS tree of $G$ rooted at $v$. Show that $v$ is an articulation point if and only if $v$ has at least two children in $T$.
+(Remember to prove both directions!) 
+\end{question}
+
+\begin{solution}
+\end{solution}
+
+
+\newpage
+\begin{question} \label{q:diameter} (14 points)
+Recall that the diameter of a graph $G$ is the ``longest shortest path'', that is, $diam(G) = \max\{dist(u,v) : u,v \in V\}$, where $d(u,v)$ is the length of the shortest path from $u$ to $v$ in $G$ and that the length of a path $P$ between two vertices $u$ and $v$ is the number of edges on the path.
+
+
+Let $T = (V, E)$ be a tree having $n$ vertices. In this question, we will design an $O(n)$-time algorithm to find the diameter of $T$ by modifying recursive DFS.\footnote{It might seem odd to apply BFS or DFS to a tree---you just get the tree you started with!
+However, the traversal of a tree in a particular order can allow for efficient computation of useful quantities.}
+
+In particular, suppose we modify recursive DFS so that it also computes, for each vertex $v$: (i) the diameter of the subtree of $T$ rooted at $v$, and (ii) the longest path from $v$ to a leaf in the subtree of $T$ rooted at $v$.
+
+\begin{enumerate}[label = (\alph*)]
+
+\item Why do you think we need to know both (i) and (ii)?
+
+\begin{solution}
+\end{solution}
+
+\item\label{item:b} Show how, knowing this information for all children of some vertex $u$, we can determine this information for $u$ itself.
+
+\begin{solution}
+\end{solution}
+
+
+\item Argue why a modified recursive DFS (that computes the diameter as explained in part~\ref{item:b}) would still be $O(n)$ time. (To analyze the
+running time, you'd have describe how the algorithm works but only in so much detail as to justify the time bound.)
+
+\begin{solution}
+\end{solution}
+\end{enumerate}
+
+\end{question}
+
+
+
+
+
+
+\newpage
+\begin{question} (KT 3.12---10 points)
+You're helping a group of ethnographers analyze some oral history data they've collected by interviewing members of a village to learn about the lives of people who have lived there over the past two hundred years. From these interviews, they've learned about a set of $n$ people (all
+of them now deceased), whom we'll denote $P_1, P_2,\ldots ,P_n$. They've also collected facts about when these people lived relative to one another. Each fact has one of the following two forms:
+\begin{itemize}
+    \item For some $i$ and $j$, person $P_i$ died before person $P_j$ was born; or
+    \item For some $i$ and $j$, the life spans of $P_i$ and $P_j$ overlapped at least partially.
+\end{itemize}
+
+Naturally, they're not sure that all these facts are correct; memories are not so good, and a lot of this was passed down by word of mouth. So what they'd like you to determine is whether the data they've collected is at least internally consistent, in the sense that there could have existed a
+set of people for which all the facts they've learned simultaneously hold. 
+
+Give an algorithm to do this: either it should produce proposed dates of birth and death for each of the $n$ people so that all the facts hold true, or it should report (correctly) that no such dates can exist, by pointing
+out of a set of collected facts that are not internally consistent. Justify the correctness and running time of your algorithm.
+
+{\em (Hint. Model the collected facts as a directed graph.  The direction of edge $(x, y)$ can represent an event $x$ occurring before event $y$.  What should be the nodes of this graph?)}
+
+
+\end{question}
+\begin{solution}
+\end{solution}
+
+
+\newpage
+
+
+
+\begin{question}[Finding Bridges]
+Let $G = (V,E)$ be a connected undirected graph. A \emph{bridge} is an edge $e \in E$ whose deletion disconnects the graph $G$. 
+%
+In this question, we will design an $O(n+m)$-time algorithm to determine if $G$ contains a bridge.  
+
+\begin{enumerate}[label = (\alph*)]
+\item (6 points) Consider a DFS tree $T$ of $G = (V,E)$.  Can an edge $e \in E \setminus T$ be a bridge?  Give a necessary and sufficient condition 
+under which an edge $e \in T$ is a bridge of $G$.  {\em Hint.  Think of the subtree rooted at $v$.  Draw some pictures.}
+
+
+
+\begin{solution}
+\end{solution}
+
+\item ({\bf Extra credit: 5 points}) Modify depth-first search to determine whether a given graph $G$ contains a bridge in $O(n+m)$ time.
+To receive credit, provide a clear description of the algorithm along with the justification of running time and correctness. 
+
+
+\begin{solution}
+\end{solution}
+\end{enumerate}
+\end{question}
+
+\newpage
+
+\subsection*{Bonus Feedback Question.}
+This question is optional and intended to guide future problem sets.  
+
+\begin{question} (2 points)
+This problem set took me:
+\begin{multicols}{2}
+
+\begin{enumerate}[label = (\alph*)]
+    \item Between 6-8 hours.
+    \item Between 4-6 hours.
+
+\end{enumerate}
+\columnbreak
+\begin{itemize}
+    \item[(c)] Between 8-10 hours.
+    \item[(d)] Other (please specify)
+\end{itemize}
+\end{multicols}
+
+\end{question}
+\begin{solution}
+\end{solution}
+
+\newpage
+\subsection*{Acknowledgment}
+This is where you cite your sources and collaborators.
+
+
+\end{document}
+

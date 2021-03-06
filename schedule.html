@@ -1,0 +1,637 @@
+<html>
+<head>
+<link rel="stylesheet" href="cs256.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="Calendar/calendar.css">
+
+<title>
+    CS 256 :: Algorithm Design and Analysis
+</title>
+
+ <style type = "text/css">
+   .tentative
+   {
+        font-style: italic;
+        color:      gray;
+   }
+
+   .solutions
+   {
+        font-style: italic;
+        color:      #5555FF;
+   }
+   .HW
+   {
+        color:      green;
+   }
+
+   table.calendar a.due:visited
+   {
+        color:     maroon;
+   }
+ </style>
+
+<script src = "Calendar/calendar_obj.js"> </script>
+<script src = "Calendar/Spring2021Calendar.js"> </script>
+<script type="text/javascript">
+
+cal = williams_calendar; /* includes holidays but not administrative dates */
+
+cal.set_class("calendar");
+cal.set_label_format("ddmmm");
+cal.setYear(2021);
+
+cal.debug_mode_on();
+
+var blank_line = ""; // adding empty item makes a blank line in calendar
+
+/***********************************************************************/
+/*                          Lectures                                   */
+/***********************************************************************/
+
+
+
+// lecture 1
+cal.add_info(
+      "19Feb", makeLink("Introduction and Course Overview", "lectures/Lecture01.pdf"));
+
+// lecture 2
+
+cal.add_info(
+      "22Feb", makeLink("Stable Matching & Asymptotics", "lectures/Lecture02.pdf"));
+
+
+// lecture 3
+cal.add_info(
+      "24Feb",  makeLink("Graphs and BFS", "lectures/Lecture03.pdf"));
+
+
+// lecture 4
+cal.add_info(
+      "26Feb",  makeLink("BFS Applications", "lectures/Lecture04.pdf"));
+
+
+// lecture 5
+cal.add_info(
+      "01Mar",  makeLink("Depth-first Search", "lectures/Lecture05.pdf"));
+
+
+// lecture 6
+cal.add_info(
+      "03Mar",  makeLink("Directed Graphs", "lectures/Lecture06.pdf"));
+
+
+// lecture 7
+cal.add_info(
+      "05Mar",  makeLink("Greedy: Exchange Method", "lectures/Lecture07.pdf"));
+
+// lecture 8
+cal.add_info(
+      "08Mar",  fakeLink("Greedy: Min Spanning Trees", "lectures/Lecture08.pdf"));
+
+// lecture 9
+cal.add_info(
+      "10Mar",  fakeLink("Greedy: MSTs & Union Find", "lectures/Lecture09.pdf"));
+
+
+// lecture 10
+cal.add_info(
+      "12Mar", fakeLink("Greedy: Shortest Paths", "lectures/Lecture10.pdf"));
+
+
+// lecture 11
+cal.add_info(
+      "15Mar",  fakeLink("Divide & Conquer: Sorting and Recurrences", "lectures/Lecture10.pdf"));
+
+
+// lecture 12
+cal.add_info(
+      "17Mar",  fakeLink("Divide & Conquer: Selection", "lectures/Lecture11.pdf"));
+
+
+// lecture 13
+cal.add_info(
+      "19Mar",  fakeLink("Matrix Multiply & Intro to Dynamic Programming", "lectures/Lecture12.pdf"));
+
+
+// lecture 14
+ cal.add_info(
+      "24Mar",  fakeLink("DP: Longest Increasing Subseq", "lectures/Lecture13.pdf"));
+
+
+// lecture 15
+cal.add_info(
+      "26Mar",  fakeLink("DP: Edit Distance", "lectures/Lecture14.pdf"));
+
+
+// lecture 16
+cal.add_info(
+      "29Mar", fakeLink("DP: Knapsack Problem", "lectures/Lecture15.pdf"));
+
+
+// lecture 17
+cal.add_info(
+      "31Mar", fakeLink("DP: Shortest Path Revisited", "lectures/Lecture16.pdf"));
+
+
+
+
+// Exam
+cal.add_info(
+      "02Apr", fakeLink("No lecture (Midterm)", ""));
+
+
+// lecture 18
+
+cal.add_info(
+      "05Apr", fakeLink("Intro to Network Flows", "lectures/Lecture17.pdf"));
+
+
+
+
+// lecture 19
+cal.add_info(
+      "07Apr", fakeLink("Ford-Fulkerson Algorithm", "lectures/Lecture18.pdf"));
+
+
+
+// lecture 20
+cal.add_info(
+      "09Apr",  fakeLink("Flow Applications", "lectures/Lecture20.pdf"));
+
+
+
+// lecture 21
+cal.add_info(
+      "12Apr",  fakeLink("P vs NP and NP-hardness", "lectures/Lecture21.pdf"));
+
+
+
+
+// lecture 22
+cal.add_info(
+      "14Apr",  fakeLink("Problem Reductions", "lectures/Lecture22.pdf"));
+
+
+// lecture 23
+cal.add_info(
+      "16Apr",  fakeLink("NP-hard Reductions", "lectures/Lecture23.pdf"));
+
+
+// lecture 24
+cal.add_info(
+      "19Apr",  fakeLink("Intractability Wrap Up", "lectures/Lecture24.pdf"));
+
+// lecture 25
+cal.add_info(
+      "23Apr", fakeLink("Probability Review 1", "lectures/Lecture25.pdf"));
+
+
+// lecture 26
+cal.add_info(
+      "26Apr", fakeLink("Probability Review 2", "lectures/Lecture26.pdf"));
+
+
+// lecture 27
+cal.add_info(
+      "28Apr", fakeLink("Randomized Analyses", "lectures/Lecture27.pdf"));
+
+// lecture 28
+cal.add_info(
+      "30Apr", fakeLink("Karger's Min Cut & Rand QuickSort", "lectures/Lecture28.pdf"));
+
+
+// lecture 29
+cal.add_info(
+      "03May",  fakeLink("Randomized Approximations", "lectures/Lecture29.pdf"));
+
+
+// lecture 30
+cal.add_info(
+      "05May",  fakeLink("Approximation Algorithms", "lectures/Lecture30.pdf"));
+
+// lecture 31
+cal.add_info(
+      "10May",  fakeLink("Approximate TSP", "lectures/Lecture31.pdf"));
+
+// lecture 32
+cal.add_info(
+      "12May",  fakeLink("Approximate Set Cover", "lectures/Lecture32.pdf"));
+
+// lecture 33
+cal.add_info(
+     "14May",  fakeLink("Misc Lecture", "lectures/Lecture33.pdf"));
+
+// lecture 34
+cal.add_info(
+     "17May",  fakeLink("Misc Lecture", "lectures/Lecture33.pdf"));
+
+
+//lecture 35
+cal.add_info(
+      "19May",  fakeLink("Wrap-up and Review", "lectures/Lecture31.pdf"));
+
+// lecture 35
+
+
+/***********************************************************************/
+/*                       Readings                                      */
+/***********************************************************************/
+
+
+
+cal.add_info(
+      "19Feb", "<br>  Reading: KT &sect;1.1&ndash;1.2 &nbsp|&nbsp  E &sect;4.5");
+
+cal.add_info(
+      "22Feb", "<br> Reading: KT &sect;1.1&ndash;1.2, 2.1&ndash;2.5  &nbsp|&nbsp  E &sect;4.5");
+
+cal.add_info(
+      "24Feb", "<br> Reading: KT &sect;3.1&ndash;3.3 &nbsp|&nbsp  E &sect;5.1&ndash;5.4");
+
+
+cal.add_info(
+      "26Feb", "<br>Reading: KT &sect;3.3&ndash;3.4  &nbsp|&nbsp  E &sect;5.4&ndash;5.7" );
+
+cal.add_info(
+      "01Mar", "<br> Reading: KT &sect;3.4&ndash;3.6 &nbsp|&nbsp  E &sect;5.7&ndash;6" );
+
+cal.add_info(
+      "03Mar", "<br> Reading: KT &sect;3.4&ndash;3.6 &nbsp|&nbsp  E &sect;5.7&ndash;6");
+
+cal.add_info(
+      "05Mar", "<br> Reading: KT &sect;4.1, 4.5  &nbsp|&nbsp  E &sect;7" );
+
+
+cal.add_info(
+      "08Mar", "<br> Reading: KT &sect;4.2, 4.5&ndash;4.6" );
+
+
+cal.add_info(
+      "10Mar", "<br> Reading: KT &sect;4.4" );
+
+
+cal.add_info(
+      "12Mar", "<br> Reading: KT &sect;5.1, 5.3 &nbsp|&nbsp  E &sect;1.4&ndash;1.5" );
+
+
+cal.add_info(
+      "15Mar", "<br> Reading:  KT &sect;5.2 &nbsp|&nbsp  E &sect;1.6&ndash;1.7" );
+
+
+cal.add_info(
+      "17Mar", "<br> Reading: KT &sect;6.1&ndash;6.2" );
+
+
+cal.add_info(
+      "19Mar", "<br> Reading: E &sect;3.1&ndash;3.2" );
+
+
+cal.add_info(
+      "24Mar", "<br> Reading: E &sect;3.6" );
+
+
+cal.add_info(
+      "26Mar", "<br> Reading: KT  &sect;6.1 &nbsp|&nbsp E &sect;3.7" );
+
+
+
+cal.add_info(
+      "29Mar", "<br> Reading: KT &sect;6.4&ndash;6.6 E &sect;3.7&ndash;3.8" );
+
+cal.add_info(
+      "31Mar", "<br> Reading:  KT &sect;6.9&ndash;6.10 &nbsp|&nbsp  E &sect;9.5" );
+
+
+cal.add_info(
+      "05Apr", "<br> Reading:  KT &sect;7.1&ndash;7.2 &nbsp|&nbsp  E &sect;10.1&ndash;10.2" );
+
+
+
+cal.add_info(
+      "07Apr", "<br> Reading:  KT &sect;7.2&ndash;7.3 &nbsp|&nbsp  E &sect;10.3" );
+
+
+cal.add_info(
+      "09Apr", "<br> Reading:  KT &sect;7.2&ndash;7.3 &nbsp|&nbsp  E &sect;10.3" );
+
+cal.add_info(
+      "12Apr", "<br> Reading:  KT &sect;7.6 &nbsp|&nbsp  E &sect;11" );
+
+
+
+
+
+cal.add_info(
+      "14Apr",  "<br> Reading: KT &sect;8.1, 8.3  &nbsp|&nbsp  E &sect;12.1&ndash;12.5" );
+
+
+cal.add_info(
+      "16Apr",  "<br> Reading: KT &sect;8.1, 8.3  &nbsp|&nbsp  E &sect;12.1&ndash;12.5" );
+
+cal.add_info(
+      "19Apr",  "<br>Reading: Reading: KT &sect;8.2, 8.4  &nbsp|&nbsp  E &sect;12.6&ndash;12.8" );
+
+
+cal.add_info(
+      "23Apr",  "<br> Reading: KT &sect;8.5&ndash;8.7;  &nbsp|&nbsp  E &sect;12.6&ndash;12.8" );
+
+
+cal.add_info(
+      "26Apr",  "<br> Reading: See Glow Syllabus" );
+
+
+cal.add_info(
+      "28Apr", "<br> Reading: See Glow Syllabus");
+
+
+
+//cal.add_info(
+//      "30Apr", "<br> Reading: See Glow Syllabus");
+
+
+cal.add_info(
+      "03May",  "<br> Reading: KT &sect;13.4&ndash;13.6");
+
+
+
+
+
+cal.add_info(
+      "05May",  "<br> Reading: KT &sect;13.6" );
+
+
+
+
+cal.add_info(
+      "10May",  "<br> Reading: KT &sect;11.1&ndash;11.2" );
+
+
+
+
+cal.add_info(
+      "12May",  "<br> Reading: KT &sect;11.2&ndash;11.3" );
+
+
+
+/**********************************************************************/
+/*                       Assignments Out                              */
+/**********************************************************************/
+
+cal.add_info(
+ "17Feb",
+              makeLink("CS256 Intro Activities",
+                       "https://glow.williams.edu/courses/3117197/assignments/31492667", "HW"));
+
+cal.add_info(
+      "17Feb",
+              makeLink("  Assignment 0 out",
+                       "assignments/Assignment_0.pdf", "HW"));
+
+
+cal.add_info(
+      "24Feb", blank_line,
+              makeLink("  Assignment 1 out",
+                       "assignments/Assignment_1.pdf", "HW"));
+
+
+cal.add_info(
+      "03Mar", blank_line,
+              makeLink(" Assignment 2 out",
+                       "assignments/Assignment_2.pdf", "HW"));
+
+
+
+
+cal.add_info(
+      "10Mar", blank_line,
+              fakeLink(" Assignment 3 out",
+                       "assignments/Assignment_3.pdf", "HW"));
+
+
+
+
+cal.add_info(
+      "17Mar", blank_line,
+              fakeLink(" Assignment 4 out",
+                       "assignments/Assignment_4.pdf", "HW"));
+
+cal.add_info(
+      "24Mar",  fakeLink(" Assignment 5 out",
+                       "assignments/Assignment_5.pdf", "HW"));
+
+
+cal.add_info(
+      "02Apr", blank_line,
+              fakeLink(" Take-home midterm out",
+                       "", "HW"));
+
+
+
+cal.add_info(
+      "05Apr", blank_line, 
+              fakeLink("Assignment 6 out",
+                       "assignments/Assignment_6.pdf", "HW"));
+
+
+
+
+cal.add_info(
+      "14Apr", blank_line,
+              fakeLink(" Assignment 7 out",
+                       "assignments/Assignment_7.pdf", "HW"));
+
+cal.add_info(
+      "26Apr", blank_line,
+              fakeLink(" Assignment 8 out",
+                       "assignments/Assignment_8.pdf", "HW"));
+
+
+cal.add_info(
+      "05May", blank_line,
+              fakeLink(" Assignment 9 out",
+                       "assignments/Assignment_9.pdf", "HW"));
+
+
+cal.add_info(
+      "12May", blank_line,
+              fakeLink(" Assignment 10 out",
+                       "assignments/Assignment10-Note.pdf", "HW"));
+
+
+
+
+
+/**********************************************************************/
+/*                       Assignments In                               */
+/**********************************************************************/
+
+
+
+cal.add_info(
+ "19Feb", blank_line,
+              makeLink("CS256 Intro Activities due",
+                       "https://glow.williams.edu/courses/3117197/assignments/31492667", "due"));
+
+
+cal.add_info(
+"24Feb", makeLink("Assignment 0 due", "https://www.gradescope.com/", "due"));
+
+
+
+cal.add_info(
+      "03Mar",makeLink("Assignment 1 due", "https://www.gradescope.com/", "due"));
+
+
+
+cal.add_info(
+      "10Mar",  makeLink("Assignment 2 due", "https://www.gradescope.com/", "due"));
+
+
+
+
+cal.add_info(
+      "17Mar", 
+             makeLink(" Assignment 3 due",
+                       "https://www.gradescope.com/", "due"));
+
+cal.add_info(
+      "24Mar", 
+              makeLink(" Assignment 4 due",
+                       "https://www.gradescope.com/", "due"));
+
+cal.add_info(
+      "30Mar", blank_line, 
+                makeLink("Assignment 5 due",
+                       "https://www.gradescope.com/", "due"));
+
+
+
+cal.add_info(
+      "14Apr",  makeLink("Assignment 6 due",
+                       "https://www.gradescope.com/", "due"));
+
+cal.add_info(  
+      "20Apr",blank_line, makeLink("Assignment 7 due",
+                       "https://www.gradescope.com/", "due"));
+
+
+cal.add_info(
+      "05May",   makeLink("Assignment 8 due",
+                       "https://www.gradescope.com/", "due"));
+
+
+
+cal.add_info(
+      "12May",   makeLink("Assignment 9 due",
+                       "https://www.gradescope.com/", "due"));
+
+
+//cal.add_info(
+//      "11May", blank_line,
+//              makeLink("Assignment 10 due",
+//                       "https://www.gradescope.com/", "due"));
+
+
+
+
+/**********************************************************************/
+/*                       Handouts                                     */
+/**********************************************************************/
+
+//cal.add_info(
+//      "08Mar",blank_line,
+//              makeLink("Guide to Greedy Algorithms",
+//                       "handouts/Guide_to_Greedy_Algorithms.pdf"));
+
+
+
+cal.add_info(
+      "30Apr", blank_line, 
+              makeLink("Reading: See GLOW Syllabus"));
+
+
+
+//cal.add_info(
+//      "13May",
+//              makeLink("<br>Reading: Filtering Handout by Erickson",
+//                       "handouts/erickson_filtering.pdf"));
+
+//cal.add_info(
+//      "11May",
+//              makeLink("<br>Reading: Skip List Handout by Demaine",
+//                       "handouts/skiplists.pdf"));
+
+
+//cal.add_info(
+//      "11May",
+//              makeLink("Reading: Section J8-J9&ndash;Handout by Erickson",
+//                       "handouts/erickson_approximation.pdf"));
+
+
+
+//cal.add_info(
+//     "13May",
+//              makeLink("<br>Reading: Count-min Sketch: Handout by Roughgarden",
+//                       "handouts/countminsketch.pdf"));
+
+
+/**********************************************************************/
+/**********************************************************************/
+
+
+
+add_williams_holidays(williams_calendar);
+add_williams_admin(williams_calendar);
+</script>
+
+<body>
+
+<p class="title2">
+<font size="5">CSCI 256: Spring 2021 </font> 
+</p>
+
+<p class="title">
+Algorithm Design and Analysis
+</p>
+
+
+<p class="box">
+    <a href="index.html">Home</a> |
+    <a href="schedule.html">Course Schedule</a> |
+    <a href="assignments.html">Assignments</a> |
+    <a href="policies.html">Course Policies</a>  |
+    <a href="resources.html">Resources</a> |
+<!--    <a href="staff.html">People</a> | -->
+    <a href="http://www.cs.williams.edu">CS Dept</a>
+</p>
+
+<p class="heading"> Lecture Schedule &amp; Readings </p>
+
+<p class="text">
+The schedule below gives the planned topics for each lecture.
+A casual perusal of the materials <b>before</b> the associated lecture
+is recommended, followed by a more thorough reading after.
+Recommended readings are from the text <i>Algorithm Design by Kleinberg
+and Tardos</i> (KT) and/or the <i>Algorithms textbook by Jeff Erickson</i> (E).
+<br><br>
+The lecture slides and assignments will be posted here as well.
+The schedule may be refined and revised as the semester progresses,
+so please check this page regularly.
+</p>
+
+
+
+<script>
+cal.render();
+</script>
+
+  <div id = "dogtag">
+   <p><font size="2">
+   Based on JavaScript calendar program by Mark A. Sheldon (<a href="mailto:msheldon@cs.tufts.edu">msheldon@cs.tufts.edu</a>) and adapted by Randy Shull (<a href="mailto:rshull@wellesley.edu">rshull@wellesley.edu</a>) and Scott Anderson (<a href="mailto:scott.anderson@wellesley.edu">scott.anderson@wellesley.edu</a>).<br>
+</font></p>
+  </div> <!-- dogtag -->
+
+</div> <!-- maincontent -->
+
+</body>
+</html>

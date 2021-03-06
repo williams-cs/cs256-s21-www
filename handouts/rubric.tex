@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{fullpage}
+
+\title{Algorithm Design \& Analysis Grading Rubric Fall 2020}
+\author{Sam McCauley}
+\date{}
+
+\begin{document}
+\maketitle
+
+This document is meant to serve as a helpful reference point for how homework is to be graded, both for students and for TAs.  It is intentionally fairly high-level; questions about specifics should be directed towards the TAs or the instructor.
+
+This document is based on similar rubrics from Tom Murtagh and Shikha Singh.
+
+\section*{Grading Assignment Questions}
+
+Each assignment question will be graded on a ten-point scale, as follows:
+
+\smallskip
+
+\begin{tabular}{rl}
+  \textbf{10:}& 	The solution is clear and correct.\\
+\textbf{9:} &	The solution is clear but contains a few mistakes, but they are mostly arithmetic or of little significance.\\
+\textbf{8:} &	The solution hits on the main points, but has at least one logical gap.\\
+\textbf{7:} &	The solution is significantly unclear or contains several major gaps, but parts of it are salvageable.\\
+\textbf{6:} &	The solution is just plain wrong or so unclear it cannot be followed.\\
+\textbf{0:} &	No attempt is made at solving the problem.
+\end{tabular}
+
+\smallskip
+
+All assignment questions should be written cleanly and concisely.  Writing good proofs is both about having the correct logic, and effectively expressing that logic to the reader.
+
+\section*{Latex Typesetting Requirements}
+
+Each assignment will also have a (small but noticeable) number of points dedicated to Latex typesetting.  This is to encourage good habits and correct usage.  The following is a list of common mistakes to bear in mind while typesetting latex---it's not meant to be exhaustive.
+
+\begin{itemize}
+  \item All variables and equations should be in math mode---one should write $O(n)$ rather than O(n), and $n < m$ rather than n < m.  Both inline math mode (using \texttt{\$\ldots \$}) and display math mode (using \texttt{\textbackslash[ \ldots \textbackslash]}) are acceptable.
+  \item Whitespace and indentation should be done with correct latex usage.  The command \texttt{\textbackslash\textbackslash} ~should only be used to force a line break when necessary, not to end a paragraph (when a blank line would do).
+  \item Text should always fit on the page, as otherwise it is impossible to read.  \mbox{Here is an example of text not fitting on the page.}
+  \item Math mode should not be used except to typeset math.  To italicize text, use \verb|\textit{}|.
+  \item Environments should be used correctly--in particular, solutions should be within the designated solution environment.
+\end{itemize}
+
+One quick sanity check to see if the above requirements are being followed is to check for latex errors during compilation---oftentimes, a latex error indicates that you are doing something wrong.\footnote{Unfortunately, as discussed, latex errors are not very useful.  There certainly exist latex errors that are not worth your time to fix, and will not result in points off.  When in doubt, ask yourself if what's happening significantly affects readability; if so it should probably be fixed.}
+
+
+\end{document}

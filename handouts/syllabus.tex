@@ -1,0 +1,239 @@
+\documentclass[11pt, a4paper]{article}
+%\usepackage{geometry}
+\usepackage[margin=1in]{geometry}
+\pagestyle{empty}
+\usepackage{graphicx}
+\usepackage{fancyhdr, lastpage, bbding, pmboxdraw}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage{ulem,amsmath}
+
+
+
+\definecolor{darkblue}{rgb}{0,0,.6}
+\definecolor{darkred}{rgb}{.7,0,0}
+\definecolor{darkgreen}{rgb}{0,.6,0}
+\definecolor{darkorange}{rgb}{1,.549,0}
+\definecolor{red}{rgb}{.98,0,0}
+\usepackage[colorlinks,pagebackref,pdfusetitle,urlcolor=darkblue,citecolor=darkblue,linkcolor=darkred,bookmarksnumbered,plainpages=false]{hyperref}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\lhead{ \fancyplain{}{CSCI 256} }
+%\chead{ \fancyplain{}{} }
+\rhead{ \fancyplain{}{\today} }
+%\rfoot{\fancyplain{}{page \thepage\ of \pageref{LastPage}}}
+\fancyfoot[RO, LE] {page \thepage\ of \pageref{LastPage} }
+\thispagestyle{plain}
+
+%%%%%%%%%%%% LISTING %%%
+\usepackage{listings}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\usepackage{verbatim} % used to display code
+\usepackage{fancyvrb}
+\usepackage{acronym}
+\usepackage{amsthm}
+\VerbatimFootnotes % Required, otherwise verbatim does not work in footnotes!
+
+
+
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+\definecolor{lightlightgray}{gray}{0.93}
+
+
+
+\lstset{
+%language=bash,                          % Code langugage
+basicstyle=\ttfamily,                   % Code font, Examples: \footnotesize, \ttfamily
+keywordstyle=\color{OliveGreen},        % Keywords font ('*' = uppercase)
+commentstyle=\color{gray},              % Comments font
+numbers=left,                           % Line nums position
+numberstyle=\tiny,                      % Line-numbers fonts
+stepnumber=1,                           % Step between two line-numbers
+numbersep=5pt,                          % How far are line-numbers from code
+backgroundcolor=\color{lightlightgray}, % Choose background color
+frame=none,                             % A frame around the code
+tabsize=2,                              % Default tab size
+captionpos=t,                           % Caption-position = bottom
+breaklines=true,                        % Automatic line breaking?
+breakatwhitespace=false,                % Automatic breaks only at whitespace?
+showspaces=false,                       % Dont make spaces visible
+showtabs=false,                         % Dont make tabls visible
+columns=flexible,                       % Column format
+morekeywords={__global__, __device__},  % CUDA specific keywords
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{center}
+{\Large \textsc{CSCI 256: Algorithm Design and Analysis}}
+\end{center}
+\begin{center}
+  Spring 2021
+\end{center}
+
+\begin{center}
+\rule{6in}{0.4pt}
+\begin{minipage}[t]{.95\textwidth}
+\begin{tabular}{llcccll}
+\textbf{Instructor:} & Shikha Singh & & &   \textbf{Time:} & MWF H1: 10.40-11.30 am &\\
+ \textbf{Office:} &  TBL 309B & & &  &   MWF H2: 12.00-12:50 pm &\\
+\textbf{Email:} &  \href{mailto:shikha@cs.williams.edu}{shikha@cs.williams.edu} & & &  \textbf{Place:} & TCL 217A &
+\end{tabular}
+\end{minipage}
+\rule{6in}{0.4pt}
+\end{center}
+\vspace{.5cm}
+\setlength{\unitlength}{1in}
+\renewcommand{\arraystretch}{2}
+
+\noindent\textbf{Course Links:}  
+\begin{itemize}[noitemsep, topsep=2pt]
+\item Course webpage: \url{https://williams-cs.github.io/cs256-s21/} 
+\item GLOW page (for both sections): \url{https://glow.williams.edu/courses/3117197}
+\item Course \href{https://calendar.google.com/calendar/u/0?cid=Y19wazhiOWY0djhmc2RlYzJrdm5qMHUxaWZpOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t}{google calendar}
+\end{itemize}
+
+
+
+\vskip.15in
+\noindent\textbf{Office Hours:} (Virtually on Zoom) Mon 2-3.30 pm, Tue 3-5 pm, and Wed 1.30-3 pm.   
+
+
+\vskip.05in
+\noindent\textbf{Lecture format:}  This a hybrid course.  The lectures will be synchronous.  In-person students
+will attend in TCL 217A and must follow
+all college-mandated safety regulations.   Remote students must join the session over Zoom.
+This format is subject to change depending on the COVID-19 situation.
+
+\vskip.15in
+\noindent\textbf{Textbooks:} The primary text for the course is \textit{Algorithm Design} by Jon Kleinberg and Éva Tardos, Addison-Wesley 2006. This will be supplemented by readings from the \textit{Algorithms} textbook by Jeff Erickson freely available at \url{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}
+
+
+\vskip.15in
+\noindent\textbf{Objectives:}  
+This course is about mathematical modeling of computational problems, developing common algorithmic techniques to solve them, and about analyzing the correctness and running time of the algorithms. By clearly formulating and carefully analyzing the structure of a problem, it is often possible to dramatically decrease the computational resources needed to solve it. In addition, by analyzing algorithms you can provide provable guarantees of their performance. We will study several algorithm design strategies that build on data structures and programming techniques introduced in CS 136 and mathematical tools introduced in MATH 200. 
+%The course will roughly cover the following topics in order: graph algorithms, greedy algorithms, divide-and-conquer, dynamic programming, NP completeness and problem reductions, approximation and randomized algorithms. 
+After completing the course, the students should be able to: 
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item Analyze worst-case running time and space usage of algorithms using asymptotic analysis.
+    \item Formulate real-world optimization problems mathematically (using concepts like sets and graphs) and apply algorithmic paradigms such as divide-and-conquer and dynamic programming to solve them.
+    \item Identify and prove that certain computational problems are NP-hard or NP-complete, that is, show that they are unlikely to admit an efficient solution.
+    \item Design and analyze simple randomized algorithms for computational problems.
+\end{itemize}
+
+\vskip.15in
+\noindent\textbf{Prerequisites:}  CSCI 136, and either MATH 200/Discrete Math Proficiency Exam.
+ 
+
+\vspace*{.15in}
+
+\noindent \textbf{Tentative Course Outline:}
+\begin{itemize}[noitemsep, topsep=2pt]
+	\item Section 1: Graphs: Matching and Traversals 
+        \item Section 2: Greedy and Divide \& Conquer
+	\item Section 3: Dynamic Programming
+        \item Section 4: Reductions: Network Flow and NP hardness
+        \item Section 5: Randomized and Approximation Algorithms
+\end{itemize}
+
+\vspace*{.15in}
+\noindent\textbf{Grading Policy:} Students will be evaluated based upon their overall performance in the course, according to the breakdown below.
+\begin{itemize}[noitemsep, topsep=2pt]
+\item Assignments (45\%)
+\item Midterm (20\%)
+\item Final (30\%)
+\item Participation (5\%)
+\end{itemize}
+
+
+\vskip.15in
+\noindent\textbf{Course Slack:}  We will be using Slack for informal classroom discussions, asynchronous questions,
+and staying in touch in a mostly-virtual semester.  
+
+
+\vskip.15in
+\noindent\textbf{Attendance and Participation:} Attendance is required in this class; students who cannot attend class regularly will need permission from the instructor in order to complete the class. Students who cannot attend a particular class session should email the instructor; excused absences will not count against your participation grade.
+
+
+Attendance is only a part of the participation grade.   Learning is a collaborative endeavor and class participation is encouraged and rewarded in this class. 
+Participation can take various forms such as coming to class prepared, being active
+on Slack, answering and asking questions, coming to office hours, etc. 
+
+
+
+\vskip.15in
+\noindent\textbf{Academic Honesty:} The course-specific collaboration policies are described on the \href{https://williams-cs.github.io/cs256-s21/policies.html}{policies
+page} of the course webpage. For a full description of the CS Honor Code, please see \href{https://csci.williams.edu/the-cs-honor-code-and-computer-usage-policy/}{CS honor code}.  
+If you have any doubt about what is appropriate, please email me at \url{shikha@cs.williams.edu}.  
+
+%Midterm and final exams are to be the sole work of each student.  No collaboration or discussion is allowed.  
+%Internet resources may not be used to obtain any solutions; however they may be used for diagnostic purposes (i.e. help with Latex solutions).  The exams are open-book, and students are encouraged to use course materials---textbooks, notes from lectures, and slides---as a reference when answering questions.  
+%They are considered ``Test Programs'' under the CS honor code.
+
+%  For assignments, the student must submit their own answers to any questions.  On these questions, students may only discuss high-level strategies and small syntax issues.   The best way to ensure that this rule is followed is to never write the content of discussions with other students while they are taking place---instead, discuss at a high level, and write down the details alone after the discussion completes.
+
+%  On assignments, students may use online resources for things like debugging (generally this will just be Latex).  Students should never look up answers to assignment questions, or to similar assignment questions.  Students are encouraged to use course materials---textbooks, notes from lectures, and slides---as a reference when answering questions.  
+
+
+\vskip.15in
+\noindent\textbf{Assignments:} 
+This course will have weekly problem sets. Planned release and the due dates and the links to actual assignments will be posted on the \href{https://williams-cs.github.io/cs256-s21/schedule.html}{course schedule}. 
+
+Problem sets will be graded on the correctness, clarity and thoroughness of responses. A good attempt at a problem, stating your approach and where you got stuck, is much better (both grade-wise and for learning) than leaving it blank. Most problems will usually require either a proof or a counter-example
+
+
+All assignments must be typeset in LaTeX using the template provided.
+LaTeX is free and available on all lab computers; it can also be installed on your personal computer, or accessed via a web interface (\href{https://www.overleaf.com/}{Overleaf}).  
+LaTeX has many useful tools---in this course we will often be using the tools for mathematical typsetting, but Latex can be used in a wide variety of circumstances, e.g., this syllabus was typeset using LaTeX.  Resources to get started with LaTeX are listed on the \href{https://williams-cs.github.io/cs256-s21/resources.html}{resources} page.
+
+Assignments must be submitted via via \href{http://gradescope.com/}{Gradescope}.   Please sign up for the course on Gradescope, using the course code {\bf 74XDKB}. 
+
+
+
+\vskip.15in
+\noindent\textbf{Late Days:}  Each student may use a total of three late days during the semester, with at most one late day towards any particular problem set. A single late day enables you to hand in the problem set up to 24 hours after the original due date. You do not need to provide a reason for using a late day. Gradescope will automatically have a ``late submission'' setting enabled. Once your late day has passed, your late work will be penalized 20\% per day and must be submitted directly to me by email.  
+
+
+\vskip.15in
+\noindent\textbf{Exams:}  The midterm will occur approximately halfway through the semester.  It will be a 24 hour take home midterm tentatively on April 2nd. 
+The final will be a 24 hour self-scheduled take-home exam during the finals period.  No collaboration or online resources (except for Latex debugging) are allowed on exams. 
+%The final will be comprehensive, but with more focus on the second half of the course.  
+
+ \vskip.15in
+\noindent\textbf{Health Days:} Since this semester does not have a traditional spring break, it is important to take advantage of the college mandated Health Days: Wednesday, April 21, Thursday, April 22, and Friday May 7.  The purpose of health days is to ``provide space for us to take a break, take a breath, and rejuvenate---in body, mind and spirit.''   So do take a break from coursework!
+
+ 
+
+
+
+
+\vskip.15in
+\noindent\textbf{Public Health and COVID-19:}
+In an attempt to keep our classroom environment as healthy as possible, all in-person students must wear a mask at all times, and keep 6 feet distance between themselves. If you feel ill, please do not come to class.  I will be happy to help you make up any missed work.
+
+
+
+\vskip.15in
+\noindent\textbf{Privacy and Recordings:} Classes will be recorded for the benefit of students enrolled remotely and those who may be unable to attend live.  By participating with your camera on, using a profile image, or with audio unmuted, you are consenting to having your video, image, and audio recorded.  If you do not want to be recorded, please be sure to keep your camera off, do not use a profile image, and keep your microphone muted.  Students who choose to not be recorded may participate by means of the chat feature.
+
+\vskip.2in
+\noindent\textbf{Health and Accessibility Resources:}
+Students with disabilities of any kind who may need accommodations for this course are encouraged to contact Dr. GL Wallace (Director of Accessible Education) at 597-4672. Also, students experiencing mental or physical health challenges that are significantly affecting their academic work or well-being are encouraged to contact me and to speak with a dean so we can help you find the right resources.  The deans can be reached at 597-4171.
+
+\vskip.15in
+\noindent\textbf{Inclusion and Classroom Culture:}
+The Williams community embraces diversity of age, background, beliefs, ethnicity, gender, gender identity, gender expression, national origin, religious affiliation, sexual orientation, and other visible and non visible categories. As a group, I expect that us to contribute to a respectful, welcoming and inclusive environment. If you have any concerns about classroom climate, please reach out to me to share your concern.
+
+
+
+
+
+ 
+\end{document} 
+

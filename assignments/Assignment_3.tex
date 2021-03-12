@@ -67,7 +67,7 @@
 }
 
 \begin{document}
-\homework{Spring 2021}{Assignment 3}{due 03/17/2021 }{Shikha Singh}{\href{TODO}{\em Overleaf}}
+\homework{Spring 2021}{Assignment 3}{due 03/17/2021 }{Shikha Singh}{\href{https://www.overleaf.com/read/wbvwffqgqpsw}{\em Overleaf}}
 
 \subsection*{Greedy and Exchange Argument}
 \begin{question}
@@ -161,8 +161,9 @@ One such example is that of dynamically changing edge weights in a graph.  This 
 such an environment.  Suppose you are given a graph $G$ with weighted edges and a minimum spanning tree $T$ of $G$. 
 		
 
-	Describe and analyze an algorithm to update the minimum spanning tree when the weight of a single edge $e$ is decreased.\footnote{Food for thought: what if we increase the weight of a single edge? What do we update the MST then?}  
-	 The input to your algorithms is the edge $e$ and its new weight and your algorithms should modify $T$ so that it is still a minimum spanning tree. 
+	Describe and analyze an algorithm to update the minimum spanning tree when the weight of a single edge $e$ is decreased.
+	 The input to your algorithms is the edge $e$ and its new weight and your algorithms should modify $T$ so that it is still a minimum spanning tree.  Remember to prove correctness and analyze the running time of your algorithm.
+ 
 Assume that all edge costs are distinct. 
  {\em Hint:  Consider $e \in T$ and $e \not\in T$ separately and use the properties that relate MST, cycles, and cuts.}
 \end{question}
@@ -180,7 +181,7 @@ Notice that the set of all the edges of the graph trivially forms a feedback edg
 
 \begin{enumerate} [label = (\alph*), leftmargin = *, noitemsep]
 \item\label{item:a} Let a feedback edge set $F$ be {\em minimal} if it does not have another feedback edge set as its subset, that is, 
-there is no set $F' \subset F$ such that $F'$ is also a feedback edge set.\footnote{Note that this has nothing to do with edge costs!} 
+there is no set $F' \subset F$ such that $F'$ is also a feedback edge set. 
 Show that if $T$ is a spanning tree of $G$, then $F = E -T$ is a minimal feedback edge set.
 
 
